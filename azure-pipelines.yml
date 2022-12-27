@@ -65,7 +65,7 @@ steps:
       **\*Rewards4*.dll 
       !**\*TestAdapter.dll 
       !**\obj\** 
-    testFiltercriteria: 'TestCategory=authentication' 
+#    testFiltercriteria: 'TestCategory=authentication' 
     uiTests: true 
     vsTestVersion: 'latest' 
     testRunTitle: 'SpecFlow BDD Scenarios' 
