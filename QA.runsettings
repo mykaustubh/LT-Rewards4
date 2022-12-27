@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RunSettings>
+  <RunConfiguration>
+    <EnvironmentVariables>
+      <!-- Available options: Chrome/Edge/Firefox/IE -->
+      <TestBrowser>Chrome</TestBrowser>
+      <!-- Set following to true to run in headless mode for local only-->
+      <HeadlessBrowserTests>false</HeadlessBrowserTests>
+      <!-- Set Local for local browser execution and Remote for Lambdatest in the cloud -->
+      <EnvironmentName>Local</EnvironmentName>
+    </EnvironmentVariables>
+  </RunConfiguration>
+</RunSettings>
