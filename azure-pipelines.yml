@@ -57,25 +57,30 @@ steps:
 #    command: build
 #    projects: '**/*.sln'
 
-- task: VSTest@2
-  displayName: Run VS SpecFlow Tests 
-  inputs: 
-    testSelector: 'testAssemblies' 
-    testAssemblyVer2: |
-      **\*Rewards4*.dll 
-      !**\*TestAdapter.dll 
-      !**\obj\** 
-#    testFiltercriteria: 'TestCategory=authentication' 
-    uiTests: true 
-    vsTestVersion: 'latest' 
-    testRunTitle: 'SpecFlow BDD Scenarios' 
-    diagnosticsEnabled: true 
-
 #- task: VSTest@2
+#  displayName: Run VS SpecFlow Tests
 #  inputs:
+#    testSelector: 'testAssemblies'
 #    testAssemblyVer2: |
-#      **\Rewards4.dll
+#      **\*Rewards4*.dll
+#      !**\*TestAdapter.dll
 #      !**\obj\**
+#    testFiltercriteria: 'TestCategory=authentication' 
+#    uiTests: true
+#    vsTestVersion: 'latest'
+#    testRunTitle: 'SpecFlow BDD Scenarios'
+#    diagnosticsEnabled: true
+
+- task: VSTest@2
+  displayName: Run VS SpecFlow Tests
+  inputs:
+    testAssemblyVer2: |
+      **\Rewards4.dll
+      !**\obj\**
+    uiTests: true
+    vsTestVersion: 'latest'
+    testRunTitle: 'SpecFlow BDD Scenarios'
+    diagnosticsEnabled: true
 #    platform: '$(buildPlatform)'
 #    configuration: '$(buildConfiguration)'
 
