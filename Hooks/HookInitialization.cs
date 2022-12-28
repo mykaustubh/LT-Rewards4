@@ -28,7 +28,7 @@ namespace TestProject1.Hooks
             _name.Name = "Join Test";
         }
 
-        [BeforeScenario(Order =1)]
+        [BeforeScenario]
         public void FirstBeforeScenario(SeleniumDriver seleniumDriver, RemoteDriver remoteDriver)
         {
             var browser = Environment.GetEnvironmentVariable("TestBrowser");

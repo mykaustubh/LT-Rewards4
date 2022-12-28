@@ -15,9 +15,13 @@ namespace TestProject1.Drivers
             _name = name;
         }
 
-        static readonly string userName = "jim.pang1";
-        static readonly string accessKey = "4Y2u0dWNCfNqLYwXDNDVWYnncuG4URFUtGbFyqNVFvEvzPuHOH";
+        static readonly string userName = "jim.pangrewards4group";
+        static readonly string accessKey = "Pwy0o9RpJFa9HyKIs3Z1fBXjURECLEQRSDJMG0fDnfllbhpKpg";
         static readonly string gridURL = "@hub.lambdatest.com/wd/hub";
+
+        //static readonly string userName = "jim.pang1";
+        //static readonly string accessKey = "4Y2u0dWNCfNqLYwXDNDVWYnncuG4URFUtGbFyqNVFvEvzPuHOH";
+        //static readonly string gridURL = "@hub.lambdatest.com/wd/hub";
 
         public IWebDriver SelectDriver(string browser)
         {

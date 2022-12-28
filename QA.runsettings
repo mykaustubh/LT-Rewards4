@@ -7,7 +7,7 @@
       <!-- Set following to true to run in headless mode for local only-->
       <HeadlessBrowserTests>false</HeadlessBrowserTests>
       <!-- Set Local for local browser execution and Remote for Lambdatest in the cloud -->
-      <EnvironmentName>Local</EnvironmentName>
+      <EnvironmentName>Remote</EnvironmentName>
     </EnvironmentVariables>
   </RunConfiguration>
 </RunSettings>
