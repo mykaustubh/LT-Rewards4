@@ -15,9 +15,9 @@ namespace TestProject1.Drivers
             _name = name;
         }
 
-        static readonly string userName "kaustubhd";
-        static readonly string accessKey "ZgVi48UdEQZ2vHgUs7XN54zNV8akxeOqY1hp4aHpYRDPmVvmgo";
-        static readonly string buildname "LT_BUILD_NAME";
+        static readonly string userName = "kaustubhd";
+        static readonly string accessKey = "ZgVi48UdEQZ2vHgUs7XN54zNV8akxeOqY1hp4aHpYRDPmVvmgo";
+        static readonly string buildname = "LT_BUILD_NAME";
         static readonly string gridURL = "@hub.lambdatest.com/wd/hub";
         public IWebDriver SelectDriver(string browser)
         {
