@@ -15,8 +15,9 @@ namespace TestProject1.Drivers
             _name = name;
         }
 
-        static readonly string userName = "";
-        static readonly string accessKey = "";
+        static readonly string userName = value="LT_USERNAME";
+        static readonly string accessKey = value="LT_ACCESSKEY";
+        static readonly string buildname = value="LT_BUILD_NAME";
         static readonly string gridURL = "@hub.lambdatest.com/wd/hub";
         public IWebDriver SelectDriver(string browser)
         {
@@ -41,7 +42,7 @@ namespace TestProject1.Drivers
             ltOptions.Add("accessKey", accessKey);
             ltOptions.Add("video", true);
             ltOptions.Add("platformName", "Windows 10");
-            ltOptions.Add("build", "Build 1.0");
+            ltOptions.Add("build", buildname);
             ltOptions.Add("name", testName);
             ltOptions.Add("selenium_version", "4.0.0");
             ltOptions.Add("w3c", true);
