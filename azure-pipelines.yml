@@ -1,93 +1,36 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
 
 trigger:
-- none
+- master
 
 pool:
   vmImage: 'windows-latest'
 
 variables:
-  project: '**/*.csproj'
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
-  buildConfiguration: 'Debug'
+  buildConfiguration: 'Release'
 
 steps:
-#- task: UseDotNet@0
-#  displayName: 'Use .NET Core sdk'
-#  inputs:
-#    packageType: 'sdk'
-#    version: '6.0.x'
-#    includePreviewVersions: true
-
 - task: NuGetToolInstaller@1
-  displayName: NuGet Install
 
 - task: NuGetCommand@2
-  displayName: Restore
   inputs:
     restoreSolution: '$(solution)'
 
 - task: VSBuild@1
-  displayName: VS Build
   inputs:
-    solution: '$(project)'
-#    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-#- task: VSTest@2
-#  displayName: VS Test
-#  inputs:
-#    platform: '$(buildPlatform)'
-#    configuration: '$(buildConfiguration)'
-
-#- task: DotNetCoreCLI@2
-#  displayName: Restore
-#  inputs:
-#    command: restore
-#    projects: '**/*.sln'
-
-#- task: DotNetCoreCLI@2
-#  displayName: Build the solution
-#  inputs:
-#    command: build
-#    projects: '**/*.sln'
-
-#- task: VSTest@2
-#  displayName: Run VS SpecFlow Tests
-#  inputs:
-#    testSelector: 'testAssemblies'
-#    testAssemblyVer2: |
-#      **\*Rewards4*.dll
-#      !**\*TestAdapter.dll
-#      !**\obj\**
-#    testFiltercriteria: 'TestCategory=authentication' 
-#    uiTests: true
-#    vsTestVersion: 'latest'
-#    testRunTitle: 'SpecFlow BDD Scenarios'
-#    diagnosticsEnabled: true
-
 - task: VSTest@2
-  displayName: Run VS SpecFlow Tests
+  displayName: 'VsTest - testAssemblies'
   inputs:
-    testAssemblyVer2: |
-      **\Rewards4.dll
-      !**\obj\**
-    uiTests: true
-    vsTestVersion: 'latest'
-    testRunTitle: 'SpecFlow BDD Scenarios'
-    diagnosticsEnabled: true
-#    platform: '$(buildPlatform)'
-#    configuration: '$(buildConfiguration)'
-
-#- task: SpecFlowPlus@0
-#  displayName: SpecFlow
-#  inputs:
-#    projectFilePath: '$(System.DefaultWorkingDirectory)'
-#    projectName: TestProject1
-#    projectLanguage: en
-#    workItemPrefix: AUTO
+    testAssemblyVer2: '**\*ParallelSelenium*.dll'
+    
+- task: LambdatestResults@1
